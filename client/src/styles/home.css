@@ -1,0 +1,75 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Home page styles */
+  .home {
+  background-image: url('https://www.instyle.com/thmb/SpDAsXW9pzq5P_q9heQRTgm1SDI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/090722-Stylist-Trends-Lead-2000-b22fc1d45a494375b4b43e33659e9bf6.jpg');
+  background-size: cover;
+  height: 70vh;
+  }
+  
+  
+  .welcome-msg {
+  text-align: center;
+  transform: translateY(100px);
+  /* margin-top: 20px; */
+  color: #fff;
+  }
+  
+  .welcome-msg h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  }
+  
+  .welcome-msg p {
+  font-size: 24px;
+  margin-bottom: 0;
+  }
+  
+  footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  }
+  
+  footer p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  }
+  
+  footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  }
+  
+  footer ul li {
+  margin-right: 30px;
+  }
+  
+  footer ul li:last-child {
+  margin-right: 0;
+  }
+  
+  footer ul li a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  }
+  
+  footer ul li a:hover {
+  color: #f9c74f;
+  }
+  
+ 

@@ -1,0 +1,13 @@
+
+    .group label{
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        color: #ffffff;
+        font-weight: 900;
+        margin-right: 40px; ;
+    }
+
+    .error{
+        color: #0c0c0c;
+    }

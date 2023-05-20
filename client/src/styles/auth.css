@@ -1,0 +1,117 @@
+ .auth-container {
+   background-image: url('https://scontent.fbom12-1.fna.fbcdn.net/v/t39.30808-6/306956560_640228474212400_1008312638638124832_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=UO4yo9zYHt4AX-9Ae5s&_nc_ht=scontent.fbom12-1.fna&oh=00_AfAF427343MXP6CL1McET8damnjZbi6R2D1vlVd_w5_E6w&oe=644E18F1');
+   background-size: cover;
+   background-position: center;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   backdrop-filter: blur(5px);
+  }
+
+  .auth-left h1{
+    color: rgb(249, 247, 247);
+   font-style: italic;
+   font-weight: bold;
+   text-align: left;
+   font-family: 'MyFont', sans-serif;
+  font-size: 4rem;
+   
+  }
+ .auth-left p{
+  width:80%;
+ }
+  
+
+ .auth-left {
+  position: absolute;
+   display: flex;
+   margin-right: 30%;
+   margin-bottom: 40%;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   transform: translateY(300px);
+   
+ }
+
+ .logo{
+   margin-bottom: 20%;
+   margin-left: 20%;
+   margin-top: 50%;
+   border-radius: 50%;
+ }
+
+
+ .auth-right {
+  position: relative;
+   display: flex;
+   transform: translateX(400px);
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 3rem;
+   background-color: rgba(0, 0, 0, 0.1);
+   border-radius: 2rem;
+   
+ }
+
+ .auth-right-hidden{
+  transform: translateX(350px);
+  margin-bottom: 20%;
+ }
+
+ .auth-right-hidden button{
+  margin-right:40px;
+ }
+
+ .my-input {
+  width: 85%;
+    background-color: transparent !important;
+    border: none;
+    color: #070707 !important;
+    outline: none;
+    border-bottom: 1px solid #dadfcc;
+    font-size: 1em;
+    font-weight: 500;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+ .form-group label {
+   display: inline-block;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #ffffff;
+    font-weight: 900;
+ }
+
+ .auth-right h2 {
+   margin-bottom: 2rem;
+   color: #fff;
+ }
+
+ .auth-right button {
+   padding: 0.5rem 2rem;
+   font-size: 1.2rem;
+   border-radius: 1.0rem;
+   border: none;
+   background-color: #19191a;
+   color: white;
+   cursor: pointer;
+   margin-left:70px ;
+   margin-top: 20px;
+   transform: translateX(-40px);
+ }
+
+ .auth-right p{
+  color: #fff;
+  width: 100%;
+  font-size: 1.2rem;
+ }
+
+ .auth-right button:hover{
+  background-color: #fff;
+  color:black;
+ }

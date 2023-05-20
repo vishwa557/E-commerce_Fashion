@@ -1,0 +1,164 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles for user card */
+.user-card {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+    transform: translateX(500px);
+
+}
+
+.user-name {
+
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #030303;
+    font-weight: 900;
+    font-size: 24px;
+    margin: 0;
+}
+
+.user-email {
+    font-size: 18px;
+    margin: 0;
+}
+
+.user-phone {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Styles for address table */
+.address-table {
+    /* width: 100%; */
+    margin: 20px;
+    border-collapse: collapse;
+    border-radius: 7px;
+    overflow: hidden;
+    width: 70%;
+    transform: translateX(200px);
+}
+
+.address-table__header {
+    background-color: #1f5156;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+
+}
+
+.address-table__data {
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.address-table__row:hover {
+    background-color: #f5f5f5;
+}
+
+/* Styles for add address button */
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1f5156;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    transform: translateX(200px);
+}
+
+button:hover {
+    background-color: #eecd46;
+}
+
+/* Styles for add address form */
+.address-form {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
+    width: 60%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.form__group--left {
+    grid-column: 1 / 2;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+.form__group--right {
+    grid-column: 2 / 2;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+.form__group--center {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.address-form__label {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #060606;
+    font-weight: 500;
+    display: block;
+    font-size: 16px;
+    width: 150%;
+    border-radius: 8px;
+
+}
+
+.address-form__input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+
+.address-form__button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1f5156;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    transform: translateX(-60px);
+}
+
+.address-form__button:hover {
+    background-color: #eecd46;
+}
