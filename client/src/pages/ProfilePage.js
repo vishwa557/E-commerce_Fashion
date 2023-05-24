@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/profile.css';
-
-const apiUrl = 'http://localhost:5000/api';
+import config from '../config.js';
 
 function ProfilePage() {
   const [userDetails, setUserDetails] = useState(null);
@@ -17,9 +16,10 @@ function ProfilePage() {
     country: '',
     zipCode: ''
   });
+  const serverUrl = config.serverUrl;
   // console.log(newAddress);
   useEffect(() => {
-    fetch(`${apiUrl}/get_user`, {
+    fetch(`${serverUrl}api/get_user`, {
       method: 'GET',
       credentials: 'include',
     })
@@ -37,7 +37,7 @@ function ProfilePage() {
         setError(error);
       });
 
-    fetch(`${apiUrl}/get_address`, {
+    fetch(`${serverUrl}api/get_address`, {
       method: 'GET',
       credentials: 'include',
     })
@@ -65,7 +65,7 @@ function ProfilePage() {
 
   const handleNewAddressSubmit = e => {
     e.preventDefault();
-    fetch(`${apiUrl}/new_address`, {
+    fetch(`${serverUrl}api/new_address`, {
       method: 'POST',
       credentials: 'include',
       headers: {

@@ -1,8 +1,10 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import config from '../config.js';
 
 const PayButton = ({user, cartItems, selectedAddress }) => {
-  console.log(cartItems)
+const serverUrl = config.serverUrl;
+  // console.log(cartItems)
   const handleCheckout = () => {
     toast.success("Redirecting to payment", {
       position: "bottom-center",
@@ -19,7 +21,7 @@ const PayButton = ({user, cartItems, selectedAddress }) => {
 
     axios
       .post(
-        "http://localhost:5000/api/create-checkout-session",
+        `${serverUrl}api/create-checkout-session`,
         {
           cartItems: formattedCartItems,
           selectedAddress,

@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/login.css';
+import config from '../config.js';
+
 
 function LoginPage({ history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const serverUrl = config.serverUrl;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/login/login', {
+      const response = await axios.post(`${serverUrl}api/login/login`, {
         email,
         password,
       });

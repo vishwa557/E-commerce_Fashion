@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../styles/products.css';
 import { toast } from "react-toastify";
 import { getUserDetails } from '../components/getuserdetails';
+import config from '../config.js';
 
 
 const ProductCard = () => {
@@ -13,6 +14,7 @@ const ProductCard = () => {
     const womenSectionRef = useRef(null);
     const kidsSectionRef = useRef(null);
     const mensSectionRef = useRef(null);
+    const serverUrl = config.serverUrl;
 
     useEffect(() => {
         getUserDetails()
@@ -48,7 +50,7 @@ const ProductCard = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/products')
+        fetch(`${serverUrl}api/products`)
             .then((response) => response.json())
             .then((data) => setProducts(data));
     }, []);

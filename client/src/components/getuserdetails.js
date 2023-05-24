@@ -1,7 +1,8 @@
-const apiUrl = 'http://localhost:5000/api';
+import config from '../config.js';
 
 export const getUserDetails = () => {
-  return fetch(`${apiUrl}/get_user`, {
+  const serverUrl = config.serverUrl;
+  return fetch(`${serverUrl}api/get_user`, {
     method: 'GET',
     credentials: 'include',
   })

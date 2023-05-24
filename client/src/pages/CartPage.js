@@ -4,6 +4,7 @@ import '../styles/cart.css';
 import PayButton from './PayButton';
 import { toast } from "react-toastify";
 import { getUserDetails } from '../components/getuserdetails';
+import config from '../config.js';
 
 
 const CartPage = () => {
@@ -14,6 +15,7 @@ const CartPage = () => {
 
   const [userId, setUserId] = useState(null);
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const serverUrl = config.serverUrl;
 
 
   useEffect(() => {
@@ -136,7 +138,7 @@ const CartPage = () => {
 
   const fetchUserAddressCart = async () => {
     const response = await fetch(
-      "http://localhost:5000/api/get_address",
+      `${serverUrl}api/get_address`,
       {
         method: "GET",
         credentials: 'include',

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/success.css';
+import config from '../config.js';
 
 const UserOrders = () => {
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const serverUrl = config.serverUrl;
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders', {
+        const response = await axios.get(`${serverUrl}api/orders`, {
           withCredentials: true,
         });
         setOrders(response.data.orders);

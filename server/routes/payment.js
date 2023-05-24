@@ -6,7 +6,7 @@ const Product = require("../models/Products");
 const verifyToken = require('../middleware/verifyToken');
 
 
-require("dotenv").config();
+require('dotenv').config();
 
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 

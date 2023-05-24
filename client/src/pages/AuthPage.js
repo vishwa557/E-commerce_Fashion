@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/auth.css';
+import config from '../config.js';
 
 function AuthPage() {
   const [firstname, setfName] = useState('');
@@ -10,6 +11,7 @@ function AuthPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [isAccountCreated, setIsAccountCreated] = useState(false);
+  const serverUrl = config.serverUrl;
 
   const validate = () => {
     const errors = {};
@@ -54,7 +56,7 @@ function AuthPage() {
     setErrors({}); // clear errors when there are no errors
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post(`${serverUrl}api/auth/register`, {
         firstname,
         lastname,
         email,
