@@ -14,6 +14,7 @@ import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
 import Success from './pages/checkoutSuccess';
 import SingleProduct from './pages/SingleProduct';
+import ContactPage from './pages/ContactPage';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/auth" element={<AuthPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/contactus" element={<ContactPage/>}/>
         <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/products" element={<ProductsPage/>}/>
         <Route path="/cart" element={<CartPage/>}/>

@@ -107,6 +107,18 @@ function NavBar() {
                             </>
                         ) : (
                             <>
+                             <li className="nav-item">
+                                    <NavLink
+                                        exact
+                                        to="/"
+                                        activeClassName="active"
+                                        className="nav-links"
+                                        onClick={() => setClick(false)}
+                                    >
+                                        Home
+                                    </NavLink>
+                                </li>
+                                
                                 <li className="nav-item">
                                     <NavLink
                                         exact
