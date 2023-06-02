@@ -45,7 +45,7 @@ const CartPage = () => {
       const cart = JSON.parse(localStorage.getItem('mycart')) || {};
       const userCart = cart[userId] || [];
       const total = userCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-      console.log(total);
+      // console.log(total);
 
       return total.toLocaleString("en-IN", {
         style: "currency",
@@ -115,6 +115,12 @@ const CartPage = () => {
       }
       toast.info("item removed from cart", {
         position: "bottom-left",
+        autoClose: 1000,
+                style: {
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0,0,0,0.6)',
+                    color:'white',
+                  },
       });
     } catch (error) {
       console.log(error);

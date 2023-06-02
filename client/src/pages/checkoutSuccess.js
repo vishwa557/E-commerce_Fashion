@@ -8,6 +8,20 @@ const UserOrders = () => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const serverUrl = config.serverUrl;
 
+  const [showNoOrders, setShowNoOrders] = useState(false);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    if (orders.length === 0) {
+      setShowNoOrders(true);
+    }
+  }, 7000);
+
+  return () => {
+    clearTimeout(timer);
+  };
+}, [orders]);
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -23,6 +37,23 @@ const UserOrders = () => {
     fetchOrders();
   }, []);
 
+  const handleCancelOrder = async (orderId) => {
+    try {
+      const response = await axios.delete(`${serverUrl}api/orders/${orderId}`, {
+        withCredentials: true,
+      });
+      console.log(response.data.message);
+      // Refresh the order list after canceling the order
+      const updatedOrders = orders.map((order) =>
+        order._id === orderId ? { ...order, delivery_status: 'Canceled'} : order
+      );
+      setOrders(updatedOrders);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   const openOrderDetails = (order) => {
     setSelectedOrder(order);
   };
@@ -31,7 +62,7 @@ const UserOrders = () => {
     setSelectedOrder(null);
   };
 
-  if (orders.length === 0) {
+  if (showNoOrders) {
     return (
       <div className="no-orders-container">
         <img src="https://static.vecteezy.com/system/resources/previews/014/814/239/original/no-order-a-flat-rounded-icon-is-up-for-premium-use-vector.jpg" alt="No orders" className="no-orders-image" />
@@ -42,7 +73,7 @@ const UserOrders = () => {
 
   return (
     <div className="user-orders-container">
-      <h1>User Orders</h1>
+      <h1>My Orders</h1>
       <table className="order-table">
         <thead>
           <tr>
@@ -55,7 +86,7 @@ const UserOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map((order) => (
+          {orders.slice().reverse().map((order) => (
             <tr className="order-row" key={order._id}>
               <td>
                 {order.products.map((product) => (
@@ -80,10 +111,20 @@ const UserOrders = () => {
               <td>{order.createdAt.substring(0, 10)}</td>
               <td style={{ color: order.delivery_status === 'Delivered' ? 'green' : 'red' }}>{order.delivery_status}</td>
               <td>
+                <div className='actions'>
+                <button
+                  className="cancel-order-button"
+                  onClick={() => handleCancelOrder(order._id)}
+                  disabled={order.delivery_status === 'Delivered'}
+                >
+                  Cancel Order
+                </button>
                 <button className="order-details-button" onClick={() => openOrderDetails(order)}>
                   More details
                 </button>
+                </div>
               </td>
+             
             </tr>
           ))}
         </tbody>
@@ -96,12 +137,12 @@ const UserOrders = () => {
               <div className="modal-header">
                 <h5 className="modal-title">Order #{selectedOrder._id}</h5>
                 {selectedOrder.receipt_url && (
-                     
-                        <a href={selectedOrder.receipt_url} target="_blank" rel="noopener noreferrer">
-                          View Receipt
-                        </a>
-                      
-                    )}
+
+                  <a href={selectedOrder.receipt_url} target="_blank" rel="noopener noreferrer">
+                    View Receipt
+                  </a>
+
+                )}
                 <button type="button" className="close" onClick={closeOrderDetails}>
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -124,7 +165,7 @@ const UserOrders = () => {
                     <p>Subtotal: {selectedOrder.subtotal}</p>
                     <p>Total: {selectedOrder.total}</p>
                     <p>Payment mode: card</p>
-                  
+
                   </div>
                   <div className="order-details-column">
                     <h5>Shipping Address:</h5>

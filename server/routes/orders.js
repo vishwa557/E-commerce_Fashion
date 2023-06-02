@@ -7,7 +7,7 @@ const verifyToken = require('../middleware/verifyToken');
 
 // Get user's orders
 router.get('/orders', verifyToken, async (req, res) => {
-  try {
+  try { 
     const userId = req.user.id;
     const orders = await Order.find({ userId }).lean();
 
@@ -58,6 +58,7 @@ router.delete('/orders/:orderId', verifyToken, async (req, res) => {
 
     // Update the delivery status to 'Canceled'
     order.delivery_status = 'Canceled';
+    order.payment_status = 'Refunded';
     await order.save();
 
     res.status(200).json({ message: 'Order canceled successfully' });

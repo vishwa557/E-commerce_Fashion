@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { getUserDetails } from '../components/getuserdetails';
 import config from '../config.js';
 
-
 const ProductCard = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCartItems] = useState([]);
@@ -45,9 +44,21 @@ const ProductCard = () => {
             localStorage.setItem("mycart", JSON.stringify(myCart));
             toast.success(`${product.name} added to cart`, {
                 position: "bottom-left",
+                autoClose: 1000,
+                style: {
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0,0,0,0.6)',
+                    color:'white',
+                  },
             });
         }
     }
+
+    const handlePhotoClick = (productId) => {
+        
+        console.log('Photo clicked');
+        window.location.href = `/singleproduct/${productId}`;
+          };
 
     useEffect(() => {
         fetch(`${serverUrl}api/products`)
@@ -117,7 +128,7 @@ const ProductCard = () => {
                     })
                     .map((product) => (
                         <div className="product-card" key={product._id}>
-                            <div className="product-image">
+                            <div className="product-image" onClick={() => handlePhotoClick(product._id)}>
                                 <img src={product.photo} alt={product.name} />
                             </div>
 
@@ -151,7 +162,7 @@ const ProductCard = () => {
                     })
                     .map((product) => (
                         <div className="product-card" key={product._id}>
-                            <div className="product-image">
+                            <div className="product-image"  onClick={() => handlePhotoClick(product._id)}>
                                 <img src={product.photo} alt={product.name} />
                             </div>
 
@@ -185,7 +196,7 @@ const ProductCard = () => {
                     })
                     .map((product) => (
                         <div className="product-card" key={product._id}>
-                            <div className="product-image">
+                            <div className="product-image"  onClick={() => handlePhotoClick(product._id)}>
                                 <img src={product.photo} alt={product.name} />
                             </div>
 

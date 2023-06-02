@@ -9,6 +9,11 @@ const serverUrl = config.serverUrl;
     toast.success("Redirecting to payment", {
       position: "bottom-center",
       autoClose: 1000,
+                style: {
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(0,0,0,0.6)',
+                    color:'white',
+                  },
     });
 
     const formattedCartItems = cartItems.map(({  _id, quantity, price, name }) => ({

@@ -13,6 +13,7 @@ import NavBar from './pages/NavBar';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
 import Success from './pages/checkoutSuccess';
+import SingleProduct from './pages/SingleProduct';
 
 
 
@@ -29,6 +30,8 @@ function App() {
         <Route path="/products" element={<ProductsPage/>}/>
         <Route path="/cart" element={<CartPage/>}/>
         <Route path="/success" element={<Success/>}/>
+        <Route path="/singleproduct/:productId" element={<SingleProduct/>}/>
+
       </Routes>
     </Router>
   );
